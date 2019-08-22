@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{{ error }}
+<body class="text-center">
+<form method="POST" action="{% url 'login' %}">
+    {% csrf_token %}
+    <h1>Please sign in</h1><br>
+    <input type="text" name="username" placeholder="username" ><br><br>
+
+    <input type="password" name="password" placeholder="password"/><br>
+    <input type="submit" value="login" class="btn btn-primary"/><br>
+    If you are new user <a href="{% url 'register' %}">Register</a>
+</form>
+</body>
+
+{% endblock %}

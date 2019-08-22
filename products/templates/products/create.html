@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+   {% block content %}
+<h1>this is upload page </h1><br>
+{{ error }}
+<form method="POST" action="{% url 'create' %}" enctype="multipart/form-data">
+    {% csrf_token %}
+    title:<br>
+    <input type="text" name="title"/><br>
+       Image:<br>
+    <input type="file" name="image"/><br>
+       Budget:<br>
+    <input type="textbox" name="budget"/><br>
+       Duration:<br>
+    <input type="text" name="duration"/><br>
+       Discription:<br>
+    <input type="text" name="discription"/><br><br>
+    <input type="submit" value="upload"  class="btn btn-primary btn-lg btn-block"/>
+</form>
+    {% endblock %}

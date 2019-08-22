@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+   {% block content %}
+<h1>this is home page </h1>
+{% for product in product.all %}
+<div class="row">
+    <div class="col-4"><hr>
+        <img src="{{ product.image.url }}"class="img-fluid" onclick="window.location='{% url 'detail' product.id %}'" style="cursor:pointer"/>
+    </div>
+    <div class="col-4">
+        <a href="{% url 'detail' product.id %}"><h1>{{ product.title }}</h1></a>
+        {{ product.summary }}
+    </div>
+    <div class="col-4">
+        <h1>{{ product.budget }}</h1>
+    </div>
+</div>
+{% endfor %}
+
+{% endblock %}
